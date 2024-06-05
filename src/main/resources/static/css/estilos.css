@@ -1,29 +1,80 @@
-#contenedorTitulo {
-    text-align: center;
-    color: purple;
-    
+#encabezado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: #496D8D;
+    color: white;
 }
 
+#encabezado h1 {
+    display: inline;
+}/*
 
-.parrafoSecundario{
-    font-size: 22px;
+*/#menu {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: cadetblue;
+    color: black;
+}/*
+
+*/#menu a:visited {
     color: navy;
 }
 
-.notaImportante{
-    color: red;
+#menu a:hover {
+    background-color: green;
+    color: white;
+}/*
+*/
+#barraLateral {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    height: 85%;
+    width: 20%;
+    background-color: gainsboro;
+    color: black;
+}
+#contenido {
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    height: 85%;
+    width: 80%;
+    background-color: beige;
+    color: black;
+    overflow: auto;
+}
+#piePagina {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3%;
+    width: 100%;
+    background-color: #496D8D;
+    color: black;
+    text-align: center;
 }
 
-h1, h2, h3 {
-    color: aqua;
-}
-h1 {
-    font-size: 2.5em;
+#encabezadoTabla {
+    font-size: 20px;
+    color: white;
+    background-color: cadetblue;
 }
 
-h2 {
-    font-size: 3.5em;
+#tablaResumen tr {
+    font-size: 25px;
 }
-h3 {
-    font-size: 1.5em;
+
+#tablaResumen tr:nth-child(odd) {
+    background-color: gold;
+}
+
+#tablaResumen tr:nth-child(even) {
+    background-color: coral;
 }
