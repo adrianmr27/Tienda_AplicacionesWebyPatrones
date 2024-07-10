@@ -13,7 +13,7 @@ public class Categoria implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_categoria")
+    @Column(name = "id_categoria")     
     private long idCategoria;
     private String descripcion;
     private String rutaImagen; // Hibernate lo transforma en ruta_imagen
@@ -27,6 +27,6 @@ public class Categoria implements Serializable {
         this.rutaImagen = rutaImagen;
         this.activo = activo;
     }
-    
+   
     
 }
