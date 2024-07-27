@@ -1,6 +1,7 @@
 package com.tienda.controller;
 
 import com.tienda.domain.Categoria;
+import com.tienda.domain.Producto;
 import com.tienda.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tienda.service.ProductoService;
+import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -80,4 +82,16 @@ public class PruebasController {
         model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
+    
+    @PostMapping("/query4")
+    public String consultaQuery4(@RequestParam(value = "cantidadMin") int cantidadMin,
+            @RequestParam(value = "cantidadMax") int cantidadMax, Model model) {
+        var productos = productoService.findByExistenciasBetweenOrderByPrecio(cantidadMin, cantidadMax);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("cantidadMin", cantidadMin);
+        model.addAttribute("cantidadMax", cantidadMax);
+        return "/pruebas/listado2";
+    }
+    
 }

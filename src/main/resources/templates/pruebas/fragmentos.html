@@ -75,8 +75,8 @@
         <!-- 3 Sección para crear los filtros -->
         <section th:fragment="filtros" class="bg-light">
             <div class="row py-2">
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
                     <form method="POST" th:action="@{/pruebas/query1}" class="was-validated">
                         <div class="card">                            
                             <div class="card-body">
@@ -97,7 +97,7 @@
                         </div>
                     </form>
                 </div>   
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <form method="POST" th:action="@{/pruebas/query2}" class="was-validated">
                         <div class="card">                            
                             <div class="card-body">
@@ -118,7 +118,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <form method="POST" th:action="@{/pruebas/query3}" class="was-validated">
                         <div class="card success">
                             <div class="card-body">
@@ -134,6 +134,27 @@
                             <div class="card-footer text-center">
                                 <button type="submit" class="btn btn-warning">
                                     <i class="fas fa-check"></i> [[#{pruebas.nativo}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <form method="POST" th:action="@{/pruebas/query4}" class="was-validated">
+                        <div class="card">                            
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="cantidadMin">Cantidad Mínima</label>
+                                    <input type="number" class="form-control" th:value="${cantidadMin}" th:name="cantidadMin" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cantidadMax">Cantidad Máxima</label>
+                                    <input type="number" class="form-control" th:value="${cantidadMax}" th:name="cantidadMax" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fas fa-check"></i> Filtrar por cantidad
                                 </button>
                             </div>
                         </div>
