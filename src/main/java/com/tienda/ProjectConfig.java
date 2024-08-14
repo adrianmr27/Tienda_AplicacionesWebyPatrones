@@ -23,9 +23,10 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
+
     /* Los siguientes métodos son para incorporar el tema de internacionalización en el proyecto */
 
-    /* localeResolver se utiliza para crear una sesión de cambio de idioma */
+ /* localeResolver se utiliza para crear una sesión de cambio de idioma */
     @Bean
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
@@ -52,12 +53,12 @@ public class ProjectConfig implements WebMvcConfigurer {
     //Bean para poder acceder a los Messages.properties en código Java...
     @Bean("messageSource")
     public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource= new ResourceBundleMessageSource();
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasenames("messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
-    
+
     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -65,7 +66,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
- }
+    }
 
 //    @Bean
 //    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -98,8 +99,8 @@ public class ProjectConfig implements WebMvcConfigurer {
 //        return http.build();
 //    }
 
-/* El siguiente método se utiliza para completar la clase no es 
-    realmente funcional, la próxima semana se reemplaza con usuarios de BD */    
+    /* El siguiente método se utiliza para completar la clase no es 
+    realmente funcional, la próxima semana se reemplaza con usuarios de BD */
 //    @Bean
 //    public UserDetailsService users() {
 //        UserDetails admin = User.builder()
@@ -119,7 +120,6 @@ public class ProjectConfig implements WebMvcConfigurer {
 //                .build();
 //        return new InMemoryUserDetailsManager(user, sales, admin);
 //    }
-    
     @Autowired
     RequestMatcherService requestMatcherService;
 
@@ -133,7 +133,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                     request
                             .requestMatchers("/", "/index", "/errores/**", "/error", "/error/**",
                                     "/carrito/**", "/pruebas/**", "/reportes/**",
-                                    "/registro/**", "/js/**", "/css/**", "/webjars/**")
+                                    "/registro/**", "/js/**", "/css/**", "/webjars/**", "/refrescarBoton")
                             .permitAll();
 
                     for (RequestMatcher matcher : requestMatchers) {
@@ -149,12 +149,12 @@ public class ProjectConfig implements WebMvcConfigurer {
         return http.build();
 
     }
-    
-     @Autowired
+
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-   } 
+}
